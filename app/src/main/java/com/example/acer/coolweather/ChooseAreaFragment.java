@@ -148,6 +148,7 @@ public class ChooseAreaFragment extends Fragment {
                 }
             }
         });
+        queryProvince();
     }
 
     /*
@@ -187,7 +188,7 @@ public class ChooseAreaFragment extends Fragment {
             /*
             * 查询指定省份ID内的城市数据
             * */
-            cityList=DataSupport.where("provinceid=?",
+            cityList=DataSupport.where("proviceid=?",
                     String.valueOf(selectedProvince.getId())).find(City.class);
             if(cityList.size()>0){
                 dataList.clear();
@@ -199,7 +200,7 @@ public class ChooseAreaFragment extends Fragment {
                 currentLevel=LEVEL_CITY;
             }else{
                 int provinceId=selectedProvince.getProviceCode();
-                String address="http://guolin.tech/api/china"+provinceId;
+                String address="http://guolin.tech/api/china/"+provinceId;
                 queryFromServer(address,"city");
             }
         }
@@ -226,7 +227,7 @@ public class ChooseAreaFragment extends Fragment {
             }else{
                 int provinceId=selectedProvince.getProviceCode();
                 int cityId=selectedCity.getCityCode();
-                String address="http://guolin.tech/api/china"+provinceId+"/"+cityId;
+                String address="http://guolin.tech/api/china/"+provinceId+"/"+cityId;
                 queryFromServer(address,"county");
             }
         }

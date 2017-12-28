@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--改布局是选择城市的界面布局-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
-<!-- 这是自定义一个标题栏-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -19,14 +17,13 @@
             android:textSize="20sp"/>
         <Button
             android:id="@+id/back_button"
-            android:layout_width="30dp"
-            android:layout_height="25sp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@drawable/arrow_left_64"/>
     </RelativeLayout>
-    <!--这是定义一个ListView，用来展示省市县的信息-->
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"

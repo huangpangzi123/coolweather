@@ -55,7 +55,7 @@ public class Utility {
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
 //                    该城市所属省份的编号
-                    city.setPriviceCode(provinceId);
+                    city.setProviceId(provinceId);
                     city.save();
                 }
                 return true;
@@ -80,7 +80,7 @@ public class Utility {
                     County county=new County();
                     county.setCountyName(countyObject.getString("name"));
                     county.setWeatherId(countyObject.getString("weather_id"));
-                    county.setCityCode(cityId);
+                    county.setCityId(cityId);
                     county.save();
                 }
                 return true;

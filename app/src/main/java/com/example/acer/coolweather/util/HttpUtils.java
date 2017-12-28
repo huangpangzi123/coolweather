@@ -11,7 +11,7 @@ import okhttp3.Request;
 
 public class HttpUtils {
 //    参数是传入的地址和一个返回实例
-    public static  void sendOkHttpRequest(String address,Callback callback){
+    public static  void sendOkHttpRequest(String address,okhttp3.Callback callback){
         OkHttpClient client=new OkHttpClient();
         Request request=new Request.Builder().url(address).build();
         client.newCall(request).enqueue(callback);

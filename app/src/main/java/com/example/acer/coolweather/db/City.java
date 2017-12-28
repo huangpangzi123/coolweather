@@ -14,7 +14,7 @@ public class City extends DataSupport{
 //        记录该城市对应的编号
     private int cityCode;
 //    该城市所属省份的编号
-    private int proviceCode;
+    private int proviceId;
     public void setCityName(String proviceName){
         this.cityName=proviceName;
     }
@@ -33,10 +33,10 @@ public class City extends DataSupport{
     public int getId(){
         return id;
     }
-    public void setPriviceCode(int proviceCode){
-        this.proviceCode=proviceCode;
+    public void setProviceId(int proviceCode){
+        this.proviceId=proviceCode;
     }
-    public int getProviceCode(){
-        return proviceCode;
+    public int getProviceId(){
+        return proviceId;
     }
 }

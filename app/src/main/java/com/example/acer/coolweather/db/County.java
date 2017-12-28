@@ -14,7 +14,7 @@ public class County extends DataSupport{
 //    记录县的编号
     private String weatherId;
 //    记录该县所属城市的编号
-    private int cityCode;
+    private int cityId;
     public void setId(int id){
         this.id=id;
     }
@@ -33,11 +33,11 @@ public class County extends DataSupport{
     public String getWeatherId(){
         return weatherId;
     }
-    public void setCityCode(int cityCode){
-        this.cityCode=cityCode;
+    public void setCityId(int cityCode){
+        this.cityId=cityCode;
     }
-    public int getCityCode(){
-        return cityCode;
+    public int getCityId(){
+        return cityId;
     }
 }
 
