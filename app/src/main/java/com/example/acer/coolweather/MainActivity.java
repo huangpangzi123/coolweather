@@ -2,6 +2,8 @@ package com.example.acer.coolweather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 /*
 * 该类上方的几个包的作用分别为：
 * db包：用于存放数据库模型相关的代码
@@ -15,5 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("MainActivity","MainActivity执行完毕");
     }
 }
