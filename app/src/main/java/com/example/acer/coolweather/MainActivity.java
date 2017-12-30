@@ -1,5 +1,8 @@
 package com.example.acer.coolweather;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +20,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("MainActivity","MainActivity执行完毕");
+        /*
+        * 从本地获取天气信息
+        * */
+        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        /*
+        * 如果从本地获取到信息则直接进入显示天气界面
+        * 如果获取不到信息则让用户选择城市
+        * */
+        if(preferences.getString("weather",null)!=null){
+            Intent intent=new Intent(this,WeatherActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

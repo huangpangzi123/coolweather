@@ -1,6 +1,7 @@
 package com.example.acer.coolweather;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -96,12 +97,10 @@ public class ChooseAreaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.choose_area_layout,container,false);
-        Log.d("ChooseArea","选择地区布局加载完毕");
         titleText=(TextView)view.findViewById(R.id.title_text);
         backButton=(Button)view.findViewById(R.id.back_button);
         listView=(ListView)view.findViewById(R.id.list_view);
         adapter=new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,dataList);
-        Log.d("ChooseArea","item加载完毕");
         listView.setAdapter(adapter);
         return view;
     }
@@ -134,6 +133,15 @@ public class ChooseAreaFragment extends Fragment {
                     * 进入选择县的界面
                     * */
                     queryCounties();
+                }else if(currentLevel==LEVEL_COUNTY){
+                    /*
+                    * 如果当前级别为县级，则进入显示天气界面
+                    * */
+                    String weathrrId=countyList.get(position).getWeatherId();
+                    Intent intent=new Intent(getActivity(),WeatherActivity.class);
+                    intent.putExtra("weather_id",weathrrId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
