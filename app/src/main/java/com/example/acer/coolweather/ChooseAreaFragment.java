@@ -138,10 +138,30 @@ public class ChooseAreaFragment extends Fragment {
                     * 如果当前级别为县级，则进入显示天气界面
                     * */
                     String weathrrId=countyList.get(position).getWeatherId();
-                    Intent intent=new Intent(getActivity(),WeatherActivity.class);
-                    intent.putExtra("weather_id",weathrrId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    /*
+                    * 判断当前界面是主界面还是显示天气界面
+                    * */
+                    if(getActivity() instanceof MainActivity){
+                        /*
+                        * 如果当前是主界面(进入显示天气界面，关闭当前界面)
+                        * */
+                        Intent intent=new Intent(getActivity(),WeatherActivity.class);
+                        intent.putExtra("weather_id",weathrrId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }else if(getActivity() instanceof WeatherActivity){
+                        WeatherActivity weatherActivity=(WeatherActivity)getActivity();
+                        /*
+                        * 关闭左侧滑动菜单
+                        * */
+                        weatherActivity.drawerLayout.closeDrawers();
+                        /*
+                        * 显示刷新条（提示正在加载当前城市天气信息）
+                        * 然后重新加载天气信息
+                        * */
+                        weatherActivity.swipeRefreshLayout.setRefreshing(true);
+                        weatherActivity.requestWeather(weathrrId);
+                    }
                 }
             }
         });
